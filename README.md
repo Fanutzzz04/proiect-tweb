@@ -30,13 +30,14 @@ Open index.html in a browser. No build step, no server.
 - [ ] Stage 2: data logic in JavaScript
 
 ## Checklist
+## Checklist
 | ID | Requirement | Where (permalink) | How to check |
 | --- | --- | --- | --- |
-| S1-R1 | README: description, fields, sample data, how to run | [README.md](link) | read |
-| S1-R2 | AI usage section | [README.md](link) | read |
-| S1-R3 | AI log for stage 1 | [etapa-01.md](link) | read |
-| S1-R4 | header, form (text + select), 3 cards with own data | [index.html#L12-L60](link) | open the page |
-| S1-R5 | finished card looks different | [style.css#L75-L78](link) | look at the card |
-| S1-R6 | 2 columns on desktop, 1 under 700px | [style.css#L90-L94](link) | resize < 700px |
-| S1-R7 | visible focus, readable dark theme | [style.css#L20-L28](link) | Tab; dark mode |
-| S1-R8 | commit "Stage 1" pushed | [Commit link](link) | commit history |
+| S1-R1 | README: description, fields, sample data, how to run | [README.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/README.md) | read |
+| S1-R2 | AI usage section | [README.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/README.md) | read |
+| S1-R3 | AI log for stage 1 | [etapa-01.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/ai-log/etapa-01.md) | read |
+| S1-R4 | header, form (text + select), 3 cards with own data | [index.html#L10-L58](https://github.com/Fanutzzz04/proiect-tweb/blob/main/index.html#L10-L58) | open the page |
+| S1-R5 | finished card looks different | [style.css#L156-L159](https://github.com/Fanutzzz04/proiect-tweb/blob/main/style.css#L156-L159) | look at the card |
+| S1-R6 | 2 columns on desktop, 1 under 700px | [style.css#L182-L186](https://github.com/Fanutzzz04/proiect-tweb/blob/main/style.css#L182-L186) | resize < 700px |
+| S1-R7 | visible focus, readable dark theme | [style.css#L20-L30](https://github.com/Fanutzzz04/proiect-tweb/blob/main/style.css#L20-L30) | Tab; dark mode |
+| S1-R8 | commit "Stage 1" pushed | [Commit history](https://github.com/Fanutzzz04/proiect-tweb/commits/main) | commit history |
