@@ -1,4 +1,4 @@
-# SynthVault
+# SynthHub
 A web application for managing a personal collection and wishlist of synthesizers.
 
 ## Data model
