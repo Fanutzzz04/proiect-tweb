@@ -1,19 +1,19 @@
-# SoundGear
-A web application for managing a personal collection and wishlist of musical instruments.
+# SynthVault
+A web application for managing a personal collection and wishlist of synthesizers.
 
 ## Data model
 | Field | Type | Notes |
 | --- | --- | --- |
 | title | text | required, max 100 chars |
 | owned | boolean | toggled from the list, default false |
-| category | fixed values | Guitars, Keyboards, Drums |
-| brand | relation | Fender, Korg, Roland, Yamaha |
+| synthesis_type | fixed values | Analog, Digital, Modular |
+| brand | relation | Korg, Roland, Moog, Behringer |
 | user | relation | the owner of the item (from week 11) |
 
 Sample data used across all stages:
-1. Fender Stratocaster, active, Guitars
-2. Korg Minilogue, done, Keyboards
-3. Roland TD-02KV, active, Drums
+1. Korg Minilogue xd, active, Analog
+2. Roland JU-06A, done, Digital
+3. Behringer Neutron, active, Modular
 
 ## AI usage
 | Tool | Used for |
@@ -34,7 +34,7 @@ Open index.html in a browser. No build step, no server.
 | --- | --- | --- | --- |
 | S1-R1 | README: description, fields, sample data, how to run | [README.md](link) | read |
 | S1-R2 | AI usage section | [README.md](link) | read |
-| S1-R3 | AI log for stage 1 | [etapa-01.md] (link) | read |
+| S1-R3 | AI log for stage 1 | [etapa-01.md](link) | read |
 | S1-R4 | header, form (text + select), 3 cards with own data | [index.html#L12-L60](link) | open the page |
 | S1-R5 | finished card looks different | [style.css#L75-L78](link) | look at the card |
 | S1-R6 | 2 columns on desktop, 1 under 700px | [style.css#L90-L94](link) | resize < 700px |
