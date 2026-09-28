@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SynthHub - Catalog Sintetizatoare</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>SynthHub</h1>
+    <p>Gestionează colecția ta de sintetizatoare și lista de dorințe.</p>
+    <p class="app-count">3 sintetizatoare, dintre care 2 deținute</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Adaugă sintetizator</h2>
+      <form class="item-form">
+        <label>
+          Titlu
+          <input type="text" name="titlu" placeholder="Ex: Korg Minilogue xd" />
+        </label>
+        <label>
+          Tip sinteză
+          <select name="eticheta">
+            <option value="analog">Analog</option>
+            <option value="digital">Digital</option>
+            <option value="modular">Modular</option>
+          </select>
+        </label>
+        <button type="submit">Adaugă</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Colecția mea</h2>
+      <!-- <p class="empty">Nu există niciun sintetizator în listă.</p> -->
+      <ul class="item-list">
+        <li class="item-card">
+          <div>
+            <h3>Korg Minilogue xd</h3>
+            <span class="badge badge-analog">Analog</span>
+          </div>
+          <span class="status">Deținut</span>
+        </li>
+        <li class="item-card done">
+          <div>
+            <h3>Roland JU-06A</h3>
+            <span class="badge badge-digital">Digital</span>
+          </div>
+          <span class="status">În wishlist</span>
+        </li>
+        <li class="item-card">
+          <div>
+            <h3>Behringer Neutron</h3>
+            <span class="badge badge-modular">Modular</span>
+          </div>
+          <span class="status">Deținut</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">Proiect Tehnologii Web</footer>
+</body>
+</html>
