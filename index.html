@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SynthHub — Synthesizer Collection Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-logo">⚡</span>
+        <div>
+          <h1>SynthHub</h1>
+          <p class="brand-sub">Catalog & Manager Echipamente Audio</p>
+        </div>
+      </div>
+      <div class="stats-badge">
+        <span class="stat-item"><strong>3</strong> Total</span>
+        <span class="stat-divider">•</span>
+        <span class="stat-item"><strong>2</strong> Deținute</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+    
+    <!-- Panou Formular -->
+    <section class="card-panel">
+      <div class="panel-header">
+        <h2>Adaugă sintetizator</h2>
+        <p>Introdu datele echipamentului tău.</p>
+      </div>
+      <form class="synth-form">
+        <div class="field-group">
+          <label for="synth-title">Model / Titlu</label>
+          <input type="text" id="synth-title" name="titlu" placeholder="ex. Korg Minilogue xd" />
+        </div>
+        
+        <div class="field-group">
+          <label for="synth-type">Tip Sinteză</label>
+          <select id="synth-type" name="eticheta">
+            <option value="analog">Analog</option>
+            <option value="digital">Digital</option>
+            <option value="modular">Modular</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit">Adaugă în catalog</button>
+      </form>
+    </section>
+
+    <!-- Panou Listă -->
+    <section class="card-panel">
+      <div class="panel-header">
+        <h2>Colecția mea</h2>
+        <p>Echipamente active și wishlist.</p>
+      </div>
+
+      <ul class="synth-list">
+        
+        <li class="synth-card">
+          <div class="synth-info">
+            <h3>Korg Minilogue xd</h3>
+            <span class="pill pill-analog">Analog</span>
+          </div>
+          <span class="status-tag status-owned">Deținut</span>
+        </li>
+
+        <li class="synth-card is-done">
+          <div class="synth-info">
+            <h3>Roland JU-06A</h3>
+            <span class="pill pill-digital">Digital</span>
+          </div>
+          <span class="status-tag status-wishlist">Wishlist</span>
+        </li>
+
+        <li class="synth-card">
+          <div class="synth-info">
+            <h3>Behringer Neutron</h3>
+            <span class="pill pill-modular">Modular</span>
+          </div>
+          <span class="status-tag status-owned">Deținut</span>
+        </li>
+
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>SynthHub &copy; 2026 — Proiect Tehnologii Web</p>
+  </footer>
+
+  <!-- Scriptul pentru Etapa 2 -->
+  <script src="echipamente.js"></script>
+</body>
+</html>

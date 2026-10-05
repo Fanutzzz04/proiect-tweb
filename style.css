@@ -1,0 +1,317 @@
+/* --- RESET & VARIABLES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-main: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  
+  /* Paleta Light Premium */
+  --bg-app: #f4f5f7;
+  --bg-card: #ffffff;
+  --border: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #eef2ff;
+
+  /* Tag-uri fine pastelat-profesionale */
+  --badge-analog-bg: #fff7ed;
+  --badge-analog-text: #c2410c;
+  --badge-digital-bg: #eff6ff;
+  --badge-digital-text: #1d4ed8;
+  --badge-modular-bg: #f0fdf4;
+  --badge-modular-text: #15803d;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Modul Întunecat Sleek Studio */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-app: #0b0f19;
+    --bg-card: #111827;
+    --border: #1f2937;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+
+    --primary: #6366f1;
+    --primary-hover: #818cf8;
+    --primary-light: #1e1b4b;
+
+    --badge-analog-bg: #27130a;
+    --badge-analog-text: #fb923c;
+    --badge-digital-bg: #0c1e3a;
+    --badge-digital-text: #60a5fa;
+    --badge-modular-bg: #0a2718;
+    --badge-modular-text: #4ade80;
+
+    --shadow-sm: none;
+    --shadow-md: none;
+  }
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- HEADER --- */
+.app-header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+}
+
+.header-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  background: var(--primary-light);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+}
+
+.brand h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stats-badge {
+  background: var(--bg-app);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.stat-item strong {
+  color: var(--text-main);
+}
+
+.stat-divider {
+  margin: 0 0.4rem;
+  opacity: 0.4;
+}
+
+/* --- MAIN LAYOUT (GRID 1FR 2FR) --- */
+.app-container {
+  max-width: 1040px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* --- CARD PANELS --- */
+.card-panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-header {
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+
+.panel-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.panel-header p {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* --- FORMULAR --- */
+.synth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.field-group input,
+.field-group select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background-color: var(--bg-app);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.field-group input:focus,
+.field-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.65rem;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  margin-top: 0.25rem;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-hover);
+}
+
+/* --- LISTA DE CARDURI --- */
+.synth-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.synth-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  background-color: var(--bg-app);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.synth-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.synth-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.synth-info h3 {
+  font-size: 0.975rem;
+  font-weight: 600;
+}
+
+/* Badges / Pills */
+.pill {
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.pill-analog {
+  background-color: var(--badge-analog-bg);
+  color: var(--badge-analog-text);
+}
+
+.pill-digital {
+  background-color: var(--badge-digital-bg);
+  color: var(--badge-digital-text);
+}
+
+.pill-modular {
+  background-color: var(--badge-modular-bg);
+  color: var(--badge-modular-text);
+}
+
+.status-tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Starea wishlist (card marcat / diferit) */
+.synth-card.is-done {
+  opacity: 0.65;
+}
+
+.synth-card.is-done h3 {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* --- ACCESIBILITATE & RESPONSIVE --- */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+}
+
+.app-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
