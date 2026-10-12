@@ -31,7 +31,7 @@ Plain JavaScript, no DOM. `echipamente.js` holds the array and the functions tha
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
-- [ ] Stage 3: Vite and React project
+- [x] Stage 3: Vite and React project
 
 ## Checklist Stage 1
 | ID | Requirement | Where (permalink) | How to check |
@@ -48,10 +48,26 @@ Plain JavaScript, no DOM. `echipamente.js` holds the array and the functions tha
 ## Checklist Stage 2
 | ID | Requirement | Where (permalink) | How to check |
 | --- | --- | --- | --- |
-| S2-R1 | JS file linked, logs on page load | [index.html#L106](https://github.com/Fanutzzz04/proiect-tweb/blob/main/index.html#L106) | open page, F12 |
+| S2-R1 | JS file linked, logs on page load | [ind  ex.html#L106](https://github.com/Fanutzzz04/proiect-tweb/blob/main/index.html#L106) | open page, F12 |
 | S2-R2 | 3+ items with id, name, state, tag | [echipamente.js#L1-L7](https://github.com/Fanutzzz04/proiect-tweb/blob/main/echipamente.js#L1-L7) | read |
 | S2-R3 | list, count, search, add, toggle, delete | [echipamente.js#L10-L64](https://github.com/Fanutzzz04/proiect-tweb/blob/main/echipamente.js#L10-L64) | console output |
 | S2-R4 | add rejects empty name and invalid tag | [echipamente.js#L30-L38](https://github.com/Fanutzzz04/proiect-tweb/blob/main/echipamente.js#L30-L38) | last 2 console lines |
 | S2-R5 | original array unchanged after add | [echipamente.js#L73](https://github.com/Fanutzzz04/proiect-tweb/blob/main/echipamente.js#L73) | console line |
 | S2-R6 | README Stage 2 section + AI log | [README.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/README.md), [etapa-02.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/ai-log/etapa-02.md) | read |
 | S2-R7 | commit "Stage 2" pushed | [Commit history](https://github.com/Fanutzzz04/proiect-tweb/commits/main) | commit history |
+
+## Checklist Stage 3
+| ID | Requirement | Where (permalink) | How to check |
+| --- | --- | --- | --- |
+| S3-R1 | npm run dev starts without errors | [frontend/package.json](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/package.json) | npm install, npm run dev |
+| S3-R2 | app name and counter computed from data | [frontend/src/App.jsx#L18-L24](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/src/App.jsx#L18-L24) | edit data, save |
+| S3-R3 | data from README, not from the example | [frontend/src/App.jsx#L1-L5](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/src/App.jsx#L1-L5) | compare with README |
+| S3-R4 | stage 1 styles reused | [frontend/src/App.css](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/src/App.css) | look at the page |
+| S3-R5 | node_modules ignored, build passes | [frontend/.gitignore](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/.gitignore) | npm run build |
+| S3-R6 | README Stage 3 section + AI log | [README.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/README.md), [etapa-03.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/ai-log/etapa-03.md) | read |
+| S3-R7 | commit "Stage 3" pushed | [Commit history](https://github.com/Fanutzzz04/proiect-tweb/commits/main) | commit history |
+
+
+
+
+
