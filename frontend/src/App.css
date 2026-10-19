@@ -121,19 +121,23 @@ body {
   opacity: 0.4;
 }
 
-/* --- MAIN LAYOUT (GRID 1FR 2FR) --- */
-.app-container {
-  max-width: 1000px;
-  margin: 24px auto;
-  padding: 0 16px;
+/* --- MAIN LAYOUT --- */
+/* Suport pentru ambele denumiri: .app-container și .container */
+.app-container,
+.container {
+  max-width: 1040px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
   display: grid;
+  /* Etapa 3: doar panoul cu date; a doua coloană revine în Etapa 7 */
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 2rem;
   align-items: start;
 }
 
 /* --- CARD PANELS --- */
-.card-panel {
+.card-panel,
+.panel {
   background-color: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -291,6 +295,17 @@ body {
   color: var(--text-muted);
 }
 
+/* Stil pentru afișarea brută JSON din Etapa 3 */
+pre {
+  background: var(--bg-app);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
 /* --- ACCESIBILITATE & RESPONSIVE --- */
 :focus-visible {
   outline: 2px solid var(--primary);
@@ -298,7 +313,8 @@ body {
 }
 
 @media (max-width: 700px) {
-  .app-container {
+  .app-container,
+  .container {
     grid-template-columns: 1fr;
   }
   

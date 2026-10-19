@@ -23,7 +23,10 @@ Sample data used across all stages:
 Details per stage: see the ai-log/ folder.
 
 ## How to run
-Open index.html in a browser. No build step, no server. Check F12 Console for Stage 2 logs.
+cd frontend
+npm install
+npm run dev
+Then open the address printed in the terminal (http://localhost:5173).
 
 ## Stage 2: data logic
 Plain JavaScript, no DOM. `echipamente.js` holds the array and the functions that read and change it. Results are printed in the browser console (F12).
@@ -32,6 +35,7 @@ Plain JavaScript, no DOM. `echipamente.js` holds the array and the functions tha
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
+- [x] Stage 4: components and props
 
 ## Checklist Stage 1
 | ID | Requirement | Where (permalink) | How to check |
@@ -68,6 +72,18 @@ Plain JavaScript, no DOM. `echipamente.js` holds the array and the functions tha
 | S3-R7 | commit "Stage 3" pushed | [Commit history](https://github.com/Fanutzzz04/proiect-tweb/commits/main) | commit history |
 
 
+## Stage 4: Components and props
+The raw JSON display is replaced by dedicated, reusable React components (`SynthList` and `SynthCard`). Data flows from `App.jsx` down to individual cards using props, rendering custom badges and distinct styles for owned/wishlist synthesizers.
 
+## Checklist Stage 4
+| ID | Requirement | Where (permalink) | How to check |
+| --- | --- | --- | --- |
+| S4-R1 | list and item components created | [frontend/src/components/](https://github.com/Fanutzzz04/proiect-tweb/tree/main/frontend/src/components) | file tree |
+| S4-R2 | list rendered with .map() and unique key | [frontend/src/components/SynthList.jsx](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/src/components/SynthList.jsx) | inspect code |
+| S4-R3 | item receives data via props | [frontend/src/components/SynthCard.jsx](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/src/components/SynthCard.jsx) | inspect props |
+| S4-R4 | finished / owned item styled differently | [frontend/src/components/SynthCard.jsx](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/src/components/SynthCard.jsx) | visual check in browser |
+| S4-R5 | build passes without warnings or errors | [frontend/package.json](https://github.com/Fanutzzz04/proiect-tweb/blob/main/frontend/package.json) | npm run build |
+| S4-R6 | README Stage 4 section + AI log | [README.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/README.md), [etapa-04.md](https://github.com/Fanutzzz04/proiect-tweb/blob/main/ai-log/etapa-04.md) | read |
+| S4-R7 | commit "Stage 4" pushed | [Commit history](https://github.com/Fanutzzz04/proiect-tweb/commits/main) | commit history |
 
 

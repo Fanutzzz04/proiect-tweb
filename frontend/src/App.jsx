@@ -1,27 +1,34 @@
+
 const echipamente = [
-  { id: 1, titlu: "Korg Minilogue xd", detinut: true, sinteza: "analog" },
-  { id: 2, titlu: "Roland JU-06A", detinut: false, sinteza: "digital" },
-  { id: 3, titlu: "Behringer Neutron", detinut: true, sinteza: "modular" }
+  
+  { id: 1, nume: "Roland Juno-106", tip: "analog", gata: true },
+  { id: 2, nume: "Korg Minilogue XD", tip: "analog", gata: false },
+  { id: 3, nume: "Moog Mother-32", tip: "modular", gata: false }
 ];
 
 export default function App() {
-  const detinute = echipamente.filter((e) => e.detinut).length;
+  
+  const active = echipamente.filter((e) => !e.gata).length;
 
   return (
     <>
       <header className="app-header">
         <div className="header-container">
           <div className="brand">
-            <span className="brand-logo">⚡</span>
+            <span className="brand-logo">🎹</span>
             <div>
-              <h1>SynthHub</h1>
-              <p className="brand-sub">Catalog & Manager Echipamente Audio</p>
+              <h1>Studio Gear</h1>
+              <p className="brand-sub">Gestiunea echipamentelor și sintetizatoarelor de studio</p>
             </div>
           </div>
           <div className="stats-badge">
-            <span className="stat-item"><strong>{echipamente.length}</strong> Total</span>
-            <span className="stat-divider">•</span>
-            <span className="stat-item"><strong>{detinute}</strong> Deținute</span>
+            <span className="stat-item">
+              Total: <strong>{echipamente.length}</strong>
+            </span>
+            <span className="stat-divider">|</span>
+            <span className="stat-item">
+              Active / Wishlist: <strong>{active}</strong>
+            </span>
           </div>
         </div>
       </header>
@@ -29,12 +36,11 @@ export default function App() {
       <main className="app-container">
         <section className="card-panel">
           <div className="panel-header">
-            <h2>Colecția mea (Date Brute)</h2>
-            <p>Afișare temporară în format JSON.</p>
+            <h2>Echipamentele mele</h2>
+            <p>Date brute preluate din componentă (Etapa 3)</p>
           </div>
-          <pre style={{ fontSize: '0.9rem', overflowX: 'auto', background: '#1e293b', color: '#f8fafc', padding: '1rem', borderRadius: '8px' }}>
-            {JSON.stringify(echipamente, null, 2)}
-          </pre>
+          {/* Afișarea temporară JSON conform ghidului */}
+          <pre>{JSON.stringify(echipamente, null, 2)}</pre>
         </section>
       </main>
     </>
