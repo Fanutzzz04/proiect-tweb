@@ -1,3 +1,4 @@
+// frontend/src/App.jsx
 import SynthList from "./components/SynthList.jsx";
 
 const echipamente = [
@@ -16,7 +17,7 @@ export default function App() {
           <div className="brand">
             <span className="brand-logo">🎹</span>
             <div>
-              <h1>Studio Gear</h1>
+              <h1>SynthHub</h1>
               <p className="brand-sub">Gestiunea echipamentelor și sintetizatoarelor de studio</p>
             </div>
           </div>
@@ -39,7 +40,6 @@ export default function App() {
             <p>Listă generată din componente React (Etapa 4)</p>
           </div>
           
-          {/* Componenta SynthList înlocuiește JSON-ul brut */}
           <SynthList echipamente={echipamente} />
         </section>
       </main>
