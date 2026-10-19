@@ -1,14 +1,13 @@
+import SynthList from "./components/SynthList.jsx";
 
 const echipamente = [
-  
-  { id: 1, nume: "Roland Juno-106", tip: "analog", gata: true },
-  { id: 2, nume: "Korg Minilogue XD", tip: "analog", gata: false },
-  { id: 3, nume: "Moog Mother-32", tip: "modular", gata: false }
+  { id: 1, title: "Roland Juno-106", synthesis_type: "analog", owned: true },
+  { id: 2, title: "Korg Minilogue xd", synthesis_type: "analog", owned: false },
+  { id: 3, title: "Moog Mother-32", synthesis_type: "modular", owned: false }
 ];
 
 export default function App() {
-  
-  const active = echipamente.filter((e) => !e.gata).length;
+  const active = echipamente.filter((e) => !e.owned && !e.gata).length;
 
   return (
     <>
@@ -27,7 +26,7 @@ export default function App() {
             </span>
             <span className="stat-divider">|</span>
             <span className="stat-item">
-              Active / Wishlist: <strong>{active}</strong>
+              Wishlist: <strong>{active}</strong>
             </span>
           </div>
         </div>
@@ -37,10 +36,11 @@ export default function App() {
         <section className="card-panel">
           <div className="panel-header">
             <h2>Echipamentele mele</h2>
-            <p>Date brute preluate din componentă (Etapa 3)</p>
+            <p>Listă generată din componente React (Etapa 4)</p>
           </div>
-          {/* Afișarea temporară JSON conform ghidului */}
-          <pre>{JSON.stringify(echipamente, null, 2)}</pre>
+          
+          {/* Componenta SynthList înlocuiește JSON-ul brut */}
+          <SynthList echipamente={echipamente} />
         </section>
       </main>
     </>
