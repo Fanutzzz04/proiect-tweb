@@ -1,24 +1,26 @@
-
-const ETICHETE_TIP = {
-  analog: "Analog",
-  digital: "Digital",
-  modular: "Modular"
-};
-
-export default function SynthCard({ item }) {
-  const isDone = item.owned || item.gata;
-
+export default function SynthCard({ synth, onToggle, onDelete }) {
   return (
-    <li className={isDone ? "synth-card is-done" : "synth-card"}>
-      <div className="synth-info">
-        <h3>{item.title || item.nume}</h3>
-        <span className={`pill pill-${item.synthesis_type || item.tip}`}>
-          {ETICHETE_TIP[item.synthesis_type || item.tip] || item.synthesis_type || item.tip}
-        </span>
-      </div>
-      <span className="status-tag">
-        {isDone ? "Deținut" : "Wishlist"}
-      </span>
+    <li className={synth.owned ? "synth-card done" : "synth-card"}>
+      <label className="synth-main">
+        <input
+          type="checkbox"
+          checked={synth.owned}
+          onChange={() => onToggle(synth.id)}
+        />
+        <div>
+          <h3>{synth.title}</h3>
+          <span className={`badge badge-${synth.synthesis_type}`}>
+            Tip sinteză: {synth.synthesis_type}
+          </span>
+        </div>
+      </label>
+      <button
+        className="btn-danger"
+        onClick={() => onDelete(synth.id)}
+        aria-label={`Șterge ${synth.title}`}
+      >
+        Șterge
+      </button>
     </li>
   );
 }

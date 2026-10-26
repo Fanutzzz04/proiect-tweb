@@ -1,4 +1,4 @@
-/* --- RESET & VARIABLES --- */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,19 +7,22 @@
 
 :root {
   --font-main: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-  
-  /* Paleta Light Premium */
+
+
   --bg-app: #f4f5f7;
   --bg-card: #ffffff;
   --border: #e2e8f0;
   --text-main: #0f172a;
   --text-muted: #64748b;
-  
+
   --primary: #4f46e5;
   --primary-hover: #4338ca;
   --primary-light: #eef2ff;
 
-  /* Tag-uri fine pastelat-profesionale */
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+
+
   --badge-analog-bg: #fff7ed;
   --badge-analog-text: #c2410c;
   --badge-digital-bg: #eff6ff;
@@ -27,13 +30,13 @@
   --badge-modular-bg: #f0fdf4;
   --badge-modular-text: #15803d;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
-/* Modul Întunecat Sleek Studio */
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg-app: #0b0f19;
     --bg-card: #111827;
     --border: #1f2937;
@@ -43,6 +46,9 @@
     --primary: #6366f1;
     --primary-hover: #818cf8;
     --primary-light: #1e1b4b;
+
+    --danger: #f87171;
+    --danger-hover: #ef4444;
 
     --badge-analog-bg: #27130a;
     --badge-analog-text: #fb923c;
@@ -56,6 +62,32 @@
   }
 }
 
+
+:root[data-theme="dark"] {
+  --bg-app: #0b0f19;
+  --bg-card: #111827;
+  --border: #1f2937;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  --primary-light: #1e1b4b;
+
+  --danger: #f87171;
+  --danger-hover: #ef4444;
+
+  --badge-analog-bg: #27130a;
+  --badge-analog-text: #fb923c;
+  --badge-digital-bg: #0c1e3a;
+  --badge-digital-text: #60a5fa;
+  --badge-modular-bg: #0a2718;
+  --badge-modular-text: #4ade80;
+
+  --shadow-sm: none;
+  --shadow-md: none;
+}
+
 body {
   font-family: var(--font-main);
   background-color: var(--bg-app);
@@ -64,11 +96,34 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- HEADER --- */
+
 .app-header {
+  position: relative;
   background-color: var(--bg-card);
   border-bottom: 1px solid var(--border);
   padding: 1.25rem 1.5rem;
+}
+
+
+.theme-toggle {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-app);
+  color: var(--text-main);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .header-container {
@@ -121,21 +176,19 @@ body {
   opacity: 0.4;
 }
 
-/* --- MAIN LAYOUT --- */
-/* Suport pentru ambele denumiri: .app-container și .container */
+
 .app-container,
 .container {
   max-width: 1040px;
   margin: 2.5rem auto;
   padding: 0 1.5rem;
   display: grid;
-  /* Etapa 3: doar panoul cu date; a doua coloană revine în Etapa 7 */
   grid-template-columns: 1fr;
   gap: 2rem;
   align-items: start;
 }
 
-/* --- CARD PANELS --- */
+
 .card-panel,
 .panel {
   background-color: var(--bg-card);
@@ -163,64 +216,7 @@ body {
   margin-top: 2px;
 }
 
-/* --- FORMULAR --- */
-.synth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-}
 
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.field-group label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-main);
-}
-
-.field-group input,
-.field-group select {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  background-color: var(--bg-app);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--text-main);
-  font-family: inherit;
-  font-size: 0.9rem;
-  transition: all 0.15s ease;
-}
-
-.field-group input:focus,
-.field-group select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--primary-light);
-}
-
-.btn-submit {
-  width: 100%;
-  padding: 0.65rem;
-  background-color: var(--primary);
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-  margin-top: 0.25rem;
-}
-
-.btn-submit:hover {
-  background-color: var(--primary-hover);
-}
-
-/* --- LISTA DE CARDURI --- */
 .synth-list {
   list-style: none;
   display: flex;
@@ -244,19 +240,44 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-.synth-info {
+
+.synth-main {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
+  cursor: pointer;
+  flex: 1;
 }
 
-.synth-info h3 {
+.synth-main input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.synth-main h3 {
   font-size: 0.975rem;
   font-weight: 600;
+  margin-bottom: 2px;
 }
 
-/* Badges / Pills */
+
+.synth-card.done h3,
+.synth-card.is-done h3 {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.synth-card.done,
+.synth-card.is-done {
+  opacity: 0.7;
+}
+
+
+.badge,
 .pill {
+  display: inline-block;
   font-size: 0.725rem;
   font-weight: 600;
   padding: 0.2rem 0.55rem;
@@ -264,49 +285,52 @@ body {
   text-transform: capitalize;
 }
 
+.badge-analog,
 .pill-analog {
   background-color: var(--badge-analog-bg);
   color: var(--badge-analog-text);
 }
 
+.badge-digital,
 .pill-digital {
   background-color: var(--badge-digital-bg);
   color: var(--badge-digital-text);
 }
 
+.badge-modular,
 .pill-modular {
   background-color: var(--badge-modular-bg);
   color: var(--badge-modular-text);
 }
 
-.status-tag {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-muted);
-}
 
-/* Starea wishlist (card marcat / diferit) */
-.synth-card.is-done {
-  opacity: 0.65;
-}
-
-.synth-card.is-done h3 {
-  text-decoration: line-through;
-  color: var(--text-muted);
-}
-
-/* Stil pentru afișarea brută JSON din Etapa 3 */
-pre {
-  background: var(--bg-app);
-  padding: 1rem;
+.btn-danger {
+  border: 1px solid var(--danger);
+  background: transparent;
+  color: var(--danger);
   border-radius: 8px;
-  border: 1px solid var(--border);
-  overflow-x: auto;
+  padding: 6px 12px;
+  font: inherit;
   font-size: 0.85rem;
-  color: var(--text-main);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-/* --- ACCESIBILITATE & RESPONSIVE --- */
+.btn-danger:hover {
+  background: var(--danger);
+  color: #ffffff;
+}
+
+
+.empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -317,17 +341,15 @@ pre {
   .container {
     grid-template-columns: 1fr;
   }
-  
+
   .header-container {
     flex-direction: column;
     gap: 0.75rem;
     align-items: flex-start;
   }
-}
 
-.app-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  .theme-toggle {
+    top: 10px;
+    right: 12px;
+  }
 }
