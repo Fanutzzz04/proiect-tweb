@@ -114,24 +114,15 @@ which is what stage 6 and stage 10 fix.
 | S5-R8 | commit “Stage 5” pushed | [Commit: Stage 5](https://github.com/Fanutzzz04/tw-lab/commits/main) | commit history |
 
 
-## Stage 6: data from a mock API
-The synthesizer list is served by json-server from `db.json` on port 3001. The app fetches it on load via `useEffect` and handles all three loading states: waiting/loading, error message if the server is unreachable, and success.
-
-```bash
-# terminal 1 (mock API)
-npm run api
-
-# terminal 2 (Vite frontend)
-npm run dev
 
 ## Checklist Stage 6
 
 | ID | Requirement | Where (permalink) | How to check |
 | --- | --- | --- | --- |
 | S6-R1 | npm run api starts, route shows JSON | [frontend/package.json](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/package.json), [frontend/db.json](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/db.json) | open localhost:3001/echipamente |
-| S6-R2 | data no longer in React code | [frontend/src/App.jsx](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/src/App.jsx) (useState([])) | inspect App.jsx |
-| S6-R3 | loading message while waiting | [frontend/src/App.jsx](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/src/App.jsx) | run with --delay 4000 |
-| S6-R4 | error message when API is down | [frontend/src/App.jsx](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/src/App.jsx) | stop npm run api, refresh |
+| S6-R2 | data no longer in React code | [frontend/src/App.jsx](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/src/App.jsx) | search for hardcoded data in App.jsx |
+| S6-R3 | loading message while waiting | [frontend/src/App.jsx](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/src/App.jsx) | run API with --delay 4000 |
+| S6-R4 | error message when API is down | [frontend/src/App.jsx](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/src/App.jsx) | stop npm run api, refresh page |
 | S6-R5 | fetch only in api.js, URL from env | [frontend/src/api.js](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/src/api.js), [frontend/.env.example](https://github.com/Fanutzzz04/tw-lab/blob/main/frontend/.env.example) | search project for fetch |
 | S6-R6 | README Stage 6 section + AI log | [README.md](https://github.com/Fanutzzz04/tw-lab/blob/main/README.md), [ai-log/etapa-06.md](https://github.com/Fanutzzz04/tw-lab/blob/main/ai-log/etapa-06.md) | read docs |
 | S6-R7 | commit "Stage 6" pushed | [Commit: Stage 6](https://github.com/Fanutzzz04/tw-lab/commits/main) | commit history |
