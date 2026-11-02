@@ -1,0 +1,9 @@
+{
+  "synthuri": [
+    { "id": 1, "title": "Roland Juno-106", "synthesis_type": "analog", "owned": true },
+    { "id": 2, "title": "Korg Minilogue xd", "synthesis_type": "analog", "owned": false },
+    { "id": 3, "title": "Moog Mother-32", "synthesis_type": "modular", "owned": false },
+    { "id": 4, "title": "Sequential Prophet-5", "synthesis_type": "analog", "owned": true },
+    { "id": 5, "title": "Elektron Digitone", "synthesis_type": "digital", "owned": false }
+  ]
+}

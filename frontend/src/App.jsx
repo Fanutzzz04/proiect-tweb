@@ -1,35 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SynthList from "./components/SynthList.jsx";
+import { fetchSynthuri } from "./api.js";
 
-// Datele temei proprii (doar valoarea de pornire)
-const ECHIPAMENTE_INITIALE = [
-  { id: 1, title: "Roland Juno-106", synthesis_type: "analog", owned: true },
-  { id: 2, title: "Korg Minilogue xd", synthesis_type: "analog", owned: false },
-  { id: 3, title: "Moog Mother-32", synthesis_type: "modular", owned: false },
-];
-
-// Tema de pornire a sistemului de operare
+// Tema de pornire a sistemului de operare (Etapa 5)
 function temaInitiala() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export default function App() {
-  const [echipamente, setEchipamente] = useState(ECHIPAMENTE_INITIALE);
+  // Stările pentru date, încărcare și eroare (Etapa 6)
+  const [synthuri, setSynthuri] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Starea pentru tema interfeței (Etapa 5)
   const [tema, setTema] = useState(temaInitiala);
+
+  // Încărcarea datelor de la API la montarea componentei
+  useEffect(() => {
+    let ignore = false;
+
+    async function load() {
+      try {
+        const data = await fetchSynthuri();
+        if (!ignore) setSynthuri(data);
+      } catch (err) {
+        if (!ignore) setError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    load();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   // Actualizare imutabilă prin comutarea câmpului owned
   function handleToggle(id) {
-    setEchipamente((prev) =>
-      prev.map((e) => (e.id === id ? { ...e, owned: !e.owned } : e))
+    setSynthuri((prev) =>
+      prev.map((s) => (s.id === id ? { ...s, owned: !s.owned } : s))
     );
   }
 
   // Ștergere imutabilă prin filtrare după id
   function handleDelete(id) {
-    setEchipamente((prev) => prev.filter((e) => e.id !== id));
+    setSynthuri((prev) => prev.filter((s) => s.id !== id));
   }
 
-  // Comutare temă și aplicare pe atributul data-theme al tag-ului <html>
+  // Comutarea temei luminoase / întunecate
   function handleTema() {
     const noua = tema === "dark" ? "light" : "dark";
     setTema(noua);
@@ -37,7 +58,7 @@ export default function App() {
   }
 
   // Valoare derivată: echipamentele care nu sunt deținute (wishlist)
-  const active = echipamente.filter((e) => !e.owned).length;
+  const active = synthuri.filter((s) => !s.owned).length;
 
   return (
     <>
@@ -60,7 +81,7 @@ export default function App() {
           </div>
           <div className="stats-badge">
             <span className="stat-item">
-              Total: <strong>{echipamente.length}</strong>
+              Total: <strong>{synthuri.length}</strong>
             </span>
             <span className="stat-divider">|</span>
             <span className="stat-item">
@@ -74,14 +95,27 @@ export default function App() {
         <section className="card-panel">
           <div className="panel-header">
             <h2>Echipamentele mele</h2>
-            <p>Listă interactivă cu state local (Etapa 5)</p>
+            <p>Listă sincronizată prin API</p>
           </div>
 
-          <SynthList
-            echipamente={echipamente}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
+          {/* Starea de încărcare */}
+          {loading && <p className="info">Se încarcă echipamentele...</p>}
+
+          {/* Starea de eroare */}
+          {error && (
+            <p className="error">
+              Nu am putut încărca datele: {error}. Rulează <code>npm run api</code>?
+            </p>
+          )}
+
+          {/* Afișarea listei doar după finalizarea cu succes a încărcării */}
+          {!loading && !error && (
+            <SynthList
+              synthuri={synthuri}
+              onToggle={handleToggle}
+              onDelete={handleDelete}
+            />
+          )}
         </section>
       </main>
     </>

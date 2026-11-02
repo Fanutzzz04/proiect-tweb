@@ -1,13 +1,17 @@
-
+/* ==========================================================================
+   1. RESET & BAZĂ
+   ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ==========================================================================
+   2. VARIABILE GLOBALE (LIGHT MODE)
+   ========================================================================== */
 :root {
   --font-main: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-
 
   --bg-app: #f4f5f7;
   --bg-card: #ffffff;
@@ -22,6 +26,9 @@
   --danger: #ef4444;
   --danger-hover: #dc2626;
 
+  /* Variabile pentru starea de eroare din Etapa 6 */
+  --error-bg: #fef2f2;
+  --error-border: #fecaca;
 
   --badge-analog-bg: #fff7ed;
   --badge-analog-text: #c2410c;
@@ -34,7 +41,9 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
-
+/* ==========================================================================
+   3. SUPORT DARK MODE (SISTEM & BUTON ETAPA 5)
+   ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg-app: #0b0f19;
@@ -50,6 +59,10 @@
     --danger: #f87171;
     --danger-hover: #ef4444;
 
+    /* Variabile eroare pentru Dark Mode */
+    --error-bg: #2a1215;
+    --error-border: #4c1d24;
+
     --badge-analog-bg: #27130a;
     --badge-analog-text: #fb923c;
     --badge-digital-bg: #0c1e3a;
@@ -61,7 +74,6 @@
     --shadow-md: none;
   }
 }
-
 
 :root[data-theme="dark"] {
   --bg-app: #0b0f19;
@@ -77,6 +89,10 @@
   --danger: #f87171;
   --danger-hover: #ef4444;
 
+  /* Variabile eroare pentru Dark Mode forțat manual */
+  --error-bg: #2a1215;
+  --error-border: #4c1d24;
+
   --badge-analog-bg: #27130a;
   --badge-analog-text: #fb923c;
   --badge-digital-bg: #0c1e3a;
@@ -88,6 +104,9 @@
   --shadow-md: none;
 }
 
+/* ==========================================================================
+   4. STRUCTURA GENERALĂ (BODY)
+   ========================================================================== */
 body {
   font-family: var(--font-main);
   background-color: var(--bg-app);
@@ -96,14 +115,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-
+/* ==========================================================================
+   5. ANTET (HEADER) & COMUTATOR TEMĂ (ETAPA 5)
+   ========================================================================== */
 .app-header {
   position: relative;
   background-color: var(--bg-card);
   border-bottom: 1px solid var(--border);
   padding: 1.25rem 1.5rem;
 }
-
 
 .theme-toggle {
   position: absolute;
@@ -176,7 +196,9 @@ body {
   opacity: 0.4;
 }
 
-
+/* ==========================================================================
+   6. PANOURI & CONTROALE STRUCTURALE
+   ========================================================================== */
 .app-container,
 .container {
   max-width: 1040px;
@@ -187,7 +209,6 @@ body {
   gap: 2rem;
   align-items: start;
 }
-
 
 .card-panel,
 .panel {
@@ -216,7 +237,9 @@ body {
   margin-top: 2px;
 }
 
-
+/* ==========================================================================
+   7. LISTA ȘI CARDURILE (SYNTHLIST / SYNTHCARD)
+   ========================================================================== */
 .synth-list {
   list-style: none;
   display: flex;
@@ -240,7 +263,6 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-
 .synth-main {
   display: flex;
   align-items: center;
@@ -262,7 +284,6 @@ body {
   margin-bottom: 2px;
 }
 
-
 .synth-card.done h3,
 .synth-card.is-done h3 {
   text-decoration: line-through;
@@ -274,7 +295,9 @@ body {
   opacity: 0.7;
 }
 
-
+/* ==========================================================================
+   8. ETICHETE (BADGES)
+   ========================================================================== */
 .badge,
 .pill {
   display: inline-block;
@@ -303,7 +326,9 @@ body {
   color: var(--badge-modular-text);
 }
 
-
+/* ==========================================================================
+   9. BUTOANE DE ACȚIUNE
+   ========================================================================== */
 .btn-danger {
   border: 1px solid var(--danger);
   background: transparent;
@@ -322,6 +347,23 @@ body {
   color: #ffffff;
 }
 
+/* ==========================================================================
+   10. STĂRI DE ÎNCĂRCARE, EROARE ȘI LISTĂ GOALĂ (ETAPA 6)
+   ========================================================================== */
+.info { 
+  color: var(--text-muted); 
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.error {
+  color: var(--danger);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 1rem;
+}
 
 .empty {
   text-align: center;
@@ -330,7 +372,9 @@ body {
   font-size: 0.95rem;
 }
 
-
+/* ==========================================================================
+   11. ACCESIBILITATE & RESPONSIVE
+   ========================================================================== */
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
